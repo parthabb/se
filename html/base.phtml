@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>{{ pagetitle }}</title>
+    <link rel="stylesheet" href="css/main.css" />
+    {% block css %}{% endblock %}
+    {% block js %}{% endblock %}
+  </head>
+  <body>
+
+    <div id="header">
+      {% block header %}
+        {% include "header.html" %}
+      {% endblock %}
+    </div>
+
+    <div id="content">
+      {% block content %}{% endblock %}
+    </div>
+
+    <div id="footer">
+      {% block footer %}
+        {% include "footer.html" %}
+      {% endblock %}
+    </div>
+
+    </body>
+</html>
