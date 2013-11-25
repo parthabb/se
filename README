@@ -1,0 +1,4 @@
+checkout the files from github: https://github.com/parthabb/se
+into your base apache file (default - '/var/www/') to run
+using lamp or wamp.
+
