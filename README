@@ -2,8 +2,8 @@ checkout the files from github: https://github.com/parthabb/se
 into your base apache file (default - '/var/www/') to run
 using lamp or wamp.
 
-Download the Twig template engine for php from
-http://twig.sensiolabs.org/doc/intro.html
+Download the Twig template engine for php using
+git clone git://github.com/fabpot/Twig.git
 
 and save it in the root of the project directory,
 defaults to '/var/www/'.
