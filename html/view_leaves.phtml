@@ -3,7 +3,7 @@
 {% block content %}
   <div align="CENTER">
   <span>Welcome {{ user }}</span>
-  {% echo count(leaves) %}
+  {% if leaves %}
   <table>
     <thead>
       <tr>
