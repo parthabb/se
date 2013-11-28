@@ -4,7 +4,7 @@
   <span>Welcome {{ user }}</span>
   <form id="approve-leaves" action="index.php?page=approve" method="post">
   <legend id="login-legend">Apply Leaves</legend>
-  <table class="margin-left-thirty">
+  <table class="margin-left-sixty center-text">
     <thead>
       <tr>
         <th>Sl no.</th>
@@ -14,6 +14,7 @@
         <th>Start Date</th>
         <th>End Date</th>
         <th>Reason</th>
+        <th>Type</th>
         <th>Status</th>
       </tr>
     </thead>
@@ -27,6 +28,7 @@
           <td>{{ pending.start_date }}</td>
           <td>{{ pending.end_date }}</td>
           <td>{{ pending.reason }}</td>
+          <td>{{ pending.type }}</td>
           <td>
             <select name="decision-{{ pending.id }}">
               {% for decision in decisions %}

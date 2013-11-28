@@ -32,17 +32,13 @@
 
     // usermodel
     $m = new UserModel($con);
-    $result = $m->GetUserByEmpId($empid);
+    $result = $m->GetUserByEmpIdAndPass($empid, $pass);
 
     if ($result) {
-      while ($row = mysqli_fetch_array ( $result )) {
-        if ($row ['password'] === $pass) {
-          unset($_SESSION['ErrMsg']);
-          $_SESSION['empid'] = $empid;
-          $_SESSION['username'] = $row ['userName'];
-          return true;
-        }
-      }
+      $row = mysqli_fetch_array ( $result );
+      $_SESSION['empid'] = $empid;
+      $_SESSION['username'] = $row ['userName'];
+      return true;
     }
 
     $_SESSION['ErrMsg'] = 'Employee id and password do not match';

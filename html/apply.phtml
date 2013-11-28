@@ -24,10 +24,9 @@
         <td><label for="Type">Type of Leave:</label></td>
         <td>
           <select name="Type" id="Type">
-            <option>Casual</option>
-            <option>Paid</option>
-            <option>Sick</option>
-            <option>Unpaid</option>
+            {% for type in leave_types %}
+              <option>{{ type }}</option>
+            {% endfor %}
           </select>
         </td>
       </tr>

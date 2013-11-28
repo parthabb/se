@@ -46,7 +46,8 @@
   class ApplyView extends BaseView {
 
     public function GetParams() {
-      $params = array('leaves_count' => $this->controller->GetLeavesCount());
+      $params = array('leaves_count' => $this->controller->GetLeavesCount(),
+                      'leave_types' => $GLOBALS['leave_type']);
       return array_merge($params, parent :: GetParams());
     }
   }

@@ -39,5 +39,6 @@
 
   // =========================== status options ================================
   $decisions = array('Approved', 'Rejected', 'Pending');
+  $leave_type = array('Paid', 'Unpaid');
 
 ?>

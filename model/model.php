@@ -21,12 +21,11 @@
 
 
   class UserModel extends BaseModel {
-
-    public function GetUserByEmpId($empId) {
-      $query = 'SELECT * FROM login where empId = ' . $empId;
+    public function GetUserByEmpIdAndPass($empId, $pass) {
+      $query = 'SELECT * FROM employee where empId = ' . $empId . ' and ' .
+               'password = MD5("' . $pass . '")';
       return mysqli_query ($this->con, $query);
     }
-
   }
 
 
@@ -44,17 +43,17 @@
 
     public function SubmitLeaves($empid, $start_date, $end_date, $type,
                                  $reason) {
-      $query = ('Insert into leaves (empId, startDate, endDate, status) ' .
-          'values (' . $empid . ', "' . $start_date .'", "' . $end_date . '",' .
-          ' "Pending")');
+      $query = ('Insert into leaves (empId, startDate, endDate, type, reason) ' .
+          'values (' . $empid . ', "' . $start_date .'", "' . $end_date . '", ' .
+          '"' . $type . '", "' . $reason . '")');
       return mysqli_query($this->con, $query);
     }
 
     public function GetPendingLeavesOfSubordinates($empid) {
       // Change query to accomodate juniors.
       $query = 'select ID, employee.empId, fName, lName, startDate, endDate, ' .
-               'status from ' .
-               'employee join leaves where employee.empId=' . $empid . ' and ' .
+               'status, reason, type from ' .
+               'employee join leaves where employee.empId !=' . $empid . ' and ' .
                'employee.empId=leaves.empId';
       return mysqli_query($this->con, $query);
     }

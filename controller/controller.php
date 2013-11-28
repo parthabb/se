@@ -21,7 +21,8 @@
               array(array(
                   'start_date' => $row['startDate'],
                   'end_date' => $row['endDate'],
-                  'status' => $row['status'])));
+                  'status' => $row['status'],
+                  'reason' => $row['reason'])));
         }
       }
       return $leaves;
@@ -67,7 +68,9 @@
               'lName' => $row['lName'],
               'start_date' => $row['startDate'],
               'end_date' => $row['endDate'],
-              'status' => $row['status']
+              'status' => $row['status'],
+              'reason' => $row['reason'],
+              'type' => $row['type'],
           )));
         }
       }
