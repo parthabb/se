@@ -3,6 +3,7 @@
 {% block content %}
   <div align="CENTER">
   <span>Welcome {{ user }}</span>
+  {% if leaves %}
   <table>
     <thead>
       <tr>
@@ -25,5 +26,6 @@
       {% endfor %}
     </tbody>
   </table>
+  {% endif %}
 </div>
 {% endblock %}
