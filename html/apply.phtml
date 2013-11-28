@@ -1,0 +1,42 @@
+{% extends "base.phtml" %}
+
+{% block content %}
+  <form id="leave-application" action="index.php?page=view_leaves" method="post">
+    <legend id="login-legend">Apply Leaves</legend>
+    <table class="margin-left-thirty">
+      <tr>
+        <td><label>Total leaves available:</label></td>
+        <td><label class="right">{{ leaves_count.total }}</label></td>
+      </tr>
+      <tr>
+        <td><label>Remaining Leaves:</label></td>
+        <td><label class="right">{{ leaves_count.remaining }}</label></td>
+      </tr>
+      <tr>
+        <td><label for="StartDate">Start Date (YYYY-mm-dd):</label></td>
+        <td><input type="text" name="StartDate" id="StartDate"></td>
+      </tr>
+      <tr>
+        <td><label for="EndDate">End Date (YYYY-mm-dd):</label></td>
+        <td><input type="text" name="EndDate" id="EndDate"></td>
+      </tr>
+      <tr>
+        <td><label for="Type">Type of Leave:</label></td>
+        <td>
+          <select name="Type" id="Type">
+            <option>Casual</option>
+            <option>Paid</option>
+            <option>Sick</option>
+            <option>Unpaid</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="Reason">Reason:</label></td>
+        <td><textarea rows=7 name="Reason" id="Reason"></textarea></td>
+      </tr>
+    </table>
+    <input type="hidden" name="applyLeave" value="applyLeave">
+    <input type="submit" class="margin-top-twenty" value="Submit">
+  </form>
+{% endblock %}

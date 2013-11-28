@@ -2,11 +2,14 @@
   {% if pagetitle != "Index" %}
     <div class="right">
       <span>{{ user }}</span> |
-      <a href="logout">logout</a>
+      <a href="index.php?page=logout">logout</a>
     </div>
   {% endif %}
 </div>
 
 <div class="overflow-auto">
+  {% if err %}
+    {{ err }}
+  {% endif %}
   <h1>Leave Application System</h1>
 </div>

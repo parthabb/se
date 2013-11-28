@@ -1,12 +1,13 @@
 {% extends "base.phtml" %}
 
 {% block content %}
-  <form id="login-form" action="index.php?page=view_leaves" method="post">
+  <form id="login-form" action="index.php?page=login" method="post">
     <legend id="login-legend">Login</legend>
-    <label for="UserName">Username:</label>
-    <input type="TEXT" name="UserName" size="12" maxlength="12" id="UserName">
-    <label for="PassWord">Password:</label>
-    <input type="password" name="PassWord" size="12" maxlength="12">
+    <label for="EmpID">UserName:</label>
+    <input type="TEXT" name="EmpId" size="12" maxlength="12" id="EmpID" placeholder="Employee ID">
+    <label for="PassWord">Password:</label>&nbsp;
+    <input type="password" name="PassWd" size="12" maxlength="12" placeholder="Password">
+    <input type="hidden" name="next_page" value="{% if next_page %}{{ next_page }}{% else %}view_leaves{% endif %}">
     <input type="submit" class="margin-top-twenty" value="Submit">
   </form>
 {% endblock %}

@@ -1,0 +1,46 @@
+{% extends "base.phtml" %}
+
+{% block content %}
+  <span>Welcome {{ user }}</span>
+  <form id="approve-leaves" action="index.php?page=approve" method="post">
+  <legend id="login-legend">Apply Leaves</legend>
+  <table class="margin-left-thirty">
+    <thead>
+      <tr>
+        <th>Sl no.</th>
+        <th>Employee ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Reason</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for pending in pending_approvals %}
+        <tr>
+          <td>{{ loop.index }}</td>
+          <td>{{ pending.empid }}</td>
+          <td>{{ pending.fName }}</td>
+          <td>{{ pending.lName }}</td>
+          <td>{{ pending.start_date }}</td>
+          <td>{{ pending.end_date }}</td>
+          <td>{{ pending.reason }}</td>
+          <td>
+            <select name="decision-{{ pending.id }}">
+              {% for decision in decisions %}
+                <option {% if pending.status == decision %}selected="selected"{% endif %}>{{ decision }}</option>
+              {% endfor %}
+            </select>
+          </td>
+        </tr>
+        <input type="hidden" name="identifier[]" value="{{ pending.id }}">
+      {% endfor %}
+    </tbody>
+  </table>
+  <input type="hidden" name="submit_approval" value="submit_approval">
+  <input type="submit" value="Submit Decision">
+  </form>
+</div>
+{% endblock %}
