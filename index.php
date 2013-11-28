@@ -75,7 +75,8 @@
     // Set the next page in case the user is not logged-in and types in URL,
     // s/he should be redirected to the correct page after loggin-in, except
     // when he comes to the log-in page through the logout link.
-    if ($page = 'index' and isset($_GET['page']) and $_GET['page'] !== 'logout') {
+    if ($page = 'index' and isset($_GET['page'])
+        and !in_array($_GET['page'], array('login', 'logout'))) {
       $param = array_merge($param, array('next_page' => $_GET['page']));
     }
     $template->display($param);

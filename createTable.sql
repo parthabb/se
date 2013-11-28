@@ -19,14 +19,14 @@ create table leaves
     type        varchar(6) not null default "Unpaid",
     reason      varchar(200)
     check ((status = "Approved" or status = "Pending" or status = "Rejected") 
-    and (startDate <= endDate) and (type = "Pain" or type = "Unpaid"))
+    and (datediff(endDate, startDate) >= 0) and (type = "Pain" or type = "Unpaid"))
 );
 
 
 create table lcount
 (
     empId       bigint primary key references employee (empID),
-    total       int not null, 
+    total       int not null,
     remaining   int not null
 );
 

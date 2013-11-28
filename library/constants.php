@@ -26,6 +26,12 @@
           'pagetitle' => 'Approve Leaves',
           'template' => 'approve',
           'view' => 'ApproveView'),
+//       'admin' => array(
+//           'controller' => 'AdminController',
+//           'model' => 'UserModel',
+//           'pagetitle' => 'Admin',
+//           'template' => 'admin',
+//           'view' => 'AdminView')
       // Handle default behavior.*/
   );
 

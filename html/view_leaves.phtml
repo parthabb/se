@@ -25,13 +25,5 @@
       {% endfor %}
     </tbody>
   </table>
-  <form action="index.php?page=apply" method="post">
-    <input type="hidden" value="{{ user }}" name="EmpID" >
-    <input type="submit" value="Apply for Leave">
-  </form>
-  <form action="index.php?page=approve" method="post">
-    <input type="hidden" value="{{ user }}" name="EmpID" >
-    <input type="submit" value="Approve Leaves">
-  </form>
 </div>
 {% endblock %}

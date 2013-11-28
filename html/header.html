@@ -2,6 +2,18 @@
   {% if pagetitle != "Index" %}
     <div class="right">
       <span>{{ user }}</span> |
+      {% if show_view_link %}
+        <a href="index.php?page=view_leaves">view leaves</a> |
+      {% endif %}
+      {% if show_apply_leaves %}
+        <a href="index.php?page=apply">apply leaves</a> |
+      {% endif %}
+      {% if show_approve_leaves %}
+        <a href="index.php?page=approve">approve leaves</a> |
+      {% endif %}
+      {% if super_user > 0 %}
+        <a href="index.php?page=admin">admin</a> |
+      {% endif %}
       <a href="index.php?page=logout">logout</a>
     </div>
   {% endif %}

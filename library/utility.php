@@ -34,10 +34,11 @@
     $m = new UserModel($con);
     $result = $m->GetUserByEmpIdAndPass($empid, $pass);
 
-    if ($result) {
+    if ($result and $result->num_rows > 0) {
       $row = mysqli_fetch_array ( $result );
       $_SESSION['empid'] = $empid;
       $_SESSION['username'] = $row ['userName'];
+      $_SESSION['superId'] = $row ['superId'];
       return true;
     }
 
