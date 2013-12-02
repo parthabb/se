@@ -15,6 +15,14 @@
         $this->params = array_merge($this->params,
                                     array('err' => $_SESSION['ErrMsg']));
       }
+      if (isset($_SESSION['InfoMsg'])) {
+        $this->params = array_merge($this->params,
+                                    array('info' => $_SESSION['InfoMsg']));
+      }
+      if (isset($_SESSION['SuccessMsg'])) {
+        $this->params = array_merge($this->params,
+                                    array('success' => $_SESSION['SuccessMsg']));
+      }
       if (isset($_SESSION['username'])) {
         $this->params = array_merge($this->params,
                                     array('user' => $_SESSION['username'],
@@ -33,12 +41,18 @@
 
     public function GetParams() {
       if (isset($_POST['applyLeave']) and $_POST['applyLeave'] === 'applyLeave') {
+        // Php validation for end date later than start date.
+        if (strtotime($_POST['StartDate']) > strtotime($_POST['EndDate'])) {
+          $_SERVER['REQUEST_URI'] = '/las/index.php?page=apply';
+          $_SESSION['ErrMsg'] = 'Start date later than end date. Please correct.';
+          return parent :: GetParams();
+        }
         $this->controller->ApplyLeaves();
       }
 
       $params = array('leaves' => $this->controller->GetLeaves(),
                       'show_apply_leaves' => true,
-                      'show_approve_leaves' => true);
+                      'show_approve_leaves' => $_SESSION['superId']);
       return array_merge(parent :: GetParams(), $params);
     }
 
@@ -51,7 +65,7 @@
       $params = array('leaves_count' => $this->controller->GetLeavesCount(),
                       'leave_types' => $GLOBALS['leave_type'],
                       'show_view_link' => true,
-                      'show_approve_leaves' => true);
+                      'show_approve_leaves' => $_SESSION['superId']);
       return array_merge($params, parent :: GetParams());
     }
   }
@@ -73,21 +87,4 @@
     }
   }
 
-/*
-  class AdminView extends BaseView {
-
-    public function GetParams() {
-      if (isset($_POST['adduser']) and $_POST['adduser'] === 'adduser') {
-        $this->controller->AddUser();
-      }
-
-      $params = array(
-          'users' => $this->controller->GetAllUsers(),
-          'show_view_link' => true,
-          'show_apply_leaves' => true,
-          'show_approve_leaves' => true);
-      return array_merge($params, parent :: GetParams());
-    }
-  }
-*/
 ?>

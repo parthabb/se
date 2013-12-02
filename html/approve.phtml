@@ -1,10 +1,9 @@
 {% extends "base.phtml" %}
 
 {% block content %}
-  <span>Welcome {{ user }}</span>
-  <form id="approve-leaves" action="index.php?page=approve" method="post">
+  <form id="approve-leaves" action="index.php?page=approve" method="post" class="margin-top-fifty">
   <legend id="login-legend">Apply Leaves</legend>
-  <table class="margin-left-sixty center-text">
+  <table class="margin-left-sixty center-text" cellpadding="10">
     <thead>
       <tr>
         <th>Sl no.</th>
@@ -42,7 +41,7 @@
     </tbody>
   </table>
   <input type="hidden" name="submit_approval" value="submit_approval">
-  <input type="submit" value="Submit Decision">
+  <input type="submit" value="Submit Decision" class="margin-bottom-twenty margin-top-twenty">
   </form>
 </div>
 {% endblock %}

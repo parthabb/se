@@ -8,7 +8,7 @@
       {% if show_apply_leaves %}
         <a href="index.php?page=apply">apply leaves</a> |
       {% endif %}
-      {% if show_approve_leaves %}
+      {% if show_approve_leaves and show_approve_leaves == true %}
         <a href="index.php?page=approve">approve leaves</a> |
       {% endif %}
       {% if super_user > 0 %}
@@ -21,7 +21,13 @@
 
 <div class="overflow-auto">
   {% if err %}
-    {{ err }}
+    <div class="error">{{ err }}</div>
+  {% endif %}
+  {% if info %}
+    <div class="info">{{ info }}</div>
+  {% endif %}
+  {% if success %}
+    <div class="success">{{ success }}</div>
   {% endif %}
   <h1>Leave Application System</h1>
 </div>

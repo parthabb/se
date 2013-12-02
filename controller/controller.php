@@ -86,7 +86,7 @@
       }
 
       if ($this->model->ApproveLeaves($decision_map)) {
-        $_SESSION['SuccessMsg'] = 'Successfully appoved/rejected for leave.';
+        $_SESSION['SuccessMsg'] = 'Successfully appoved/rejected leave.';
         return;
       }
       $_SESSION['ErrMsg'] = 'Leave approval/rejection failed.';

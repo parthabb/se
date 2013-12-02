@@ -83,6 +83,11 @@
   }
 
   // ========================== close DB connection ============================
+  if ($_POST) {  // Post/Redirect/Get pattern.
+    // Redirect to this page.
+    header("Location: " . $_SERVER['REQUEST_URI']);
+  } else {
+    UnsetAllMessages();
+  }
   mysqli_close ( $con );
-  UnsetAllMessages();
 ?>
