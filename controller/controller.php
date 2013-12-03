@@ -92,11 +92,5 @@
       $_SESSION['ErrMsg'] = 'Leave approval/rejection failed.';
     }
   }
-/*
-  class AdminController extends BaseController {
-     public function GetAllUsers() {
-       $result = $this->model->GetAllUsers();
-     }
-  }
-*/
+
 ?>
